@@ -19,7 +19,7 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
 	@Override
 	protected String[] getServletMappings() {
 		// Crear mapeos de las vistas
-		return null;
+		String [] mappings = {"/"};
+		return mappings;
 	}
-
 }
