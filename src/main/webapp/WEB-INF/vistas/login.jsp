@@ -35,7 +35,7 @@
 							<div class="col-md-8" style="text-align: center;">
 								<div class="d-flex col col-12 mh-2 justify-content-center p-2">
 									<div class="row w-auto justify-content-center">
-										<img class="img-responsive p-2" style="width: 40%;" src="https://i.imgur.com/Ds9c5MH.png"/>
+										<img class="img-responsive p-2" style="width: 40%;" src="<c:url value="/assets/images/logo-candado.png" />"/>
 										<form:form action="login" method="post">
 											<input class="form-control mt-2" type="text" name="username" placeholder="Ingrese usuario">
 			
