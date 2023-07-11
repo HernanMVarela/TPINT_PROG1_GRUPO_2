@@ -17,8 +17,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	private DataSource dataSource;
 	@Autowired
 	private PasswordEncoder passwordEncoder;
-	
-	@Override
+		@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		
 		/// AUTENTIFICACION POR BASE DE DATOS - Spring Security Schema con UserDetails
@@ -28,11 +27,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.inMemoryAuthentication()
 		.withUser("localadmin")
 		.password("$2a$12$oDingzHIKvubzzOPT3Sr..CISToI1txQv/6B3reU2vp2HhnZj.4T6") //123456
-		.roles("ADMIN")
+		.authorities("ADMIN")
 		.and()
 		.withUser("tamara")
 		.password("$2a$12$8tILy447KTEuMNnI52cVYO2N3U/xL8/3eeYZ9cJ6aZH4nqnTvYeEK") //herrera
-		.roles("ADMIN");
+		.authorities("ADMIN");
 		
 	}
 	
@@ -41,11 +40,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		
 		http
 			.authorizeRequests()
-			.antMatchers("/login").permitAll()
-			.antMatchers("/clientes").access("hasRole('ADMIN')")
+			.antMatchers("/","/login","/registro").permitAll()
+			.antMatchers("/home").authenticated()
 			.and()
-				.formLogin().loginPage("/login")
-				.successForwardUrl("/clientes")
+				.formLogin().loginPage("/login").loginProcessingUrl("/login").permitAll()
+				.successForwardUrl("/loginSuccesful").permitAll()
 				.and()
 				.httpBasic()
 				.and().logout();

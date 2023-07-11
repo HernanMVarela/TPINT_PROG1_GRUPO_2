@@ -3,6 +3,7 @@
 :root{
   --color-fondo: black;
   --color-boton: rgb(85, 125, 230);
+  --clr: #222223;
 }
 
 body{
@@ -85,14 +86,14 @@ body{
     margin-right: 1%;
     text-align: center;    
     text-decoration: none;
-    color: var(--color-boton);
-    border: currentColor 0.125em solid;
+    color: var(--clr2);
+    border: #000000 0.125em solid;
     padding: 0.25em 1em;
     border-radius: 0.25em;
     z-index: 1;
 
-    text-shadow: 0 0 0.125em var(--color-boton), 0 0 0.45em currentColor;
-    box-shadow: inset 0 0 0.5em var(--color-boton), 0 0 0.5em var(--color-boton);
+    text-shadow: 0 0 0.125em var(--clr2), 0 0 0.45em #000000;
+    box-shadow: inset 0 0 0.5em var(--clr2), 0 0 0.5em var(--clr2);
 }
 
 .boton::after{
@@ -102,19 +103,76 @@ body{
     bottom: 0;
     left: 0;
     right: 0;
-    box-shadow: 0 0 2em 0.5em var(--color-boton);
+    box-shadow: 0 0 2em 0.5em var(#000000);
     opacity: 0;
     z-index: -1;
-    background: var(--color-boton);
+    background: var(--clr2);
     transition: opacity 200ms linear;
 }
 
 .boton:hover,.boton:focus{
-    background: var(--color-boton);
+    background: var(--clr2);
     color: black;
+    letter-spacing: 0.15em;
     text-shadow: none;
 }
 
 .boton:hover::after{
     opacity: 1;
 }
+
+.cuadro_uno {
+    border-radius: 15px;
+    border: 5px solid #aaaaaa;
+    background-color: #fff;
+    height: stretch;
+    transition: 0.5s;
+}
+    .cuadro_uno:hover {
+        border: 5px solid var(--clr);
+        box-shadow: 0 0 50px var(--clr);
+    }
+
+
+.btn-p {
+	display: inline-block;
+	font-weight: 400;
+	line-height: 1.4;
+	color: var(--clr2);
+	text-align: center;
+	text-decoration: none;
+	vertical-align: middle;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	background-color: transparent;
+	border: 2px solid var(--clr2);
+	border-radius: 15px;
+    border-block-width: 5px;
+    border-inline-width: 5px;
+	padding: .375rem .75rem;
+	font-size: 1.1rem;
+	text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.but {
+    position: relative;
+    transition: 0.3s;
+    z-index: 1;
+}
+
+    .but:hover {
+        background: var(--clr);
+        letter-spacing: 0.15em;
+        box-shadow: 0 0 35px var(--clr);
+        color: black;
+        border-color: #212529;
+    }
+
+    .but::before {
+        content: '';
+        position: absolute;
+        inset: 2px;
+    }

@@ -30,7 +30,7 @@ public class AppConfig implements WebMvcConfigurer {
 	@Bean
 	public DataSource datasource() {
 		DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
-		driverManagerDataSource.setUrl("jdbc:mysql://localhost:3306/springsecuritytest");
+		driverManagerDataSource.setUrl("jdbc:mysql://localhost:3306/tpint_prog1_springsec");
 		driverManagerDataSource.setUsername("root");
 		driverManagerDataSource.setPassword("root");
 		driverManagerDataSource.setDriverClassName("com.mysql.jdbc.Driver");
@@ -49,6 +49,7 @@ public class AppConfig implements WebMvcConfigurer {
 		return jdbcTemplate;
 	}
 	
+	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/assets/**")
                 .addResourceLocations("classpath:/static/assets/");

@@ -5,11 +5,8 @@
 <%@ include file="common/Header.jspf" %>
 </head>
 
-<script type="text/javascript">
-
-</script>
-
 <body>
+<%@ include file="common/NavigatorCommon.jspf" %>
 	<div class="container-fluid">
 		<div class="row align-items-md-stretch"> 		
 			<div class="container">
@@ -27,15 +24,30 @@
 			            </div>
 			        </div>
 				</c:if>
-			
+				<c:if test="${param.newuser != null }">
+					<div class="row align-items-md-stretch">
+			            <div class="d-flex justify-content-center" style="text-align: center;">
+			               	<h3 class="w-auto m-2 py-1 px-3 bg-primary border rounded-3">Se ha creado un nuevo usuario</h3>	
+			            </div>
+			        </div>
+				</c:if>
 				<div class="p-2 mb-2 bg-light border rounded-3" style="width: 100%">
 					<div class="container-fluid py-1">
 						<div class="row align-items-md-stretch">
-							
-							<div class="col-md-8" style="text-align: center;">
+							<div class="col-md-6" style="text-align: center;">
+								<img class="img-responsive p-3" style="width: 50%;" src="<c:url value="/assets/images/logo.png" />"/>
+								<h1>¡Hola!</h1>
+								<p>
+									Si aun no tienes cuenta, puedes registrarte haciendo click en el boton de abajo.
+								</p>
+								<form:form action="registro" method="post">
+									<input type="submit" class="btn btn-success mr-1" value="REGISTRARSE">
+								</form:form>
+							</div>
+							<div class="col-md-6" style="text-align: center;">
 								<div class="d-flex col col-12 mh-2 justify-content-center p-2">
 									<div class="row w-auto justify-content-center">
-										<img class="img-responsive p-2" style="width: 40%;" src="<c:url value="/assets/images/logo-candado.png" />"/>
+										<img class="img-responsive p-2" style="width: 50%;" src="<c:url value="/assets/images/logo-candado.png" />"/>
 										<form:form action="login" method="post">
 											<input class="form-control mt-2" type="text" name="username" placeholder="Ingrese usuario">
 			
