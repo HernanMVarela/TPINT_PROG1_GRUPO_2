@@ -16,8 +16,8 @@ $(document).ready(function () {
 <body>
 <%@ include file="common/NavigatorCommon.jspf"%>
           <div class="container-fluid">
-              <div class="p-5 bg-light border rounded-3" style="width: 100%">
-                <div class="d-flex  align-content-center bd-highlight mb-3">
+              <div class="p-3 bg-light border rounded-3" style="width: 100%">
+                <div class="d-flex align-content-center bd-highlight mb-3">
                   <div class="me-auto p-2 bd-highlight align-self-center">
                     <h1>PRESTAMOS</h1>
                   </div>
@@ -26,7 +26,7 @@ $(document).ready(function () {
                   <div class="col-md-auto table-responsive w-100">
                     <table id="tabla_prestamos" class="table table-hover text-center">
                       <thead>
-                        <tr>
+                        <tr class="table-secondary">
                           <th class="text-center" scope="col"> Numero </th>
                           <th class="text-center" scope="col"> Fecha </th>
                           <th class="text-center" scope="col"> DNI </th>
@@ -38,11 +38,11 @@ $(document).ready(function () {
                       <tbody>
                         <c:forEach items="${listaPrestamos}" var="item">
                           <c:if test="${item.monto > 0}">                        
-                          <tr>
-                            <td>${item.numPrestamo} </td>
+                          <tr class="table-primary">
+                            <td>${item.numero} </td>
                             <td>${item.fecha}</td>
-                            <td>${item.cliente.DNI}</td>
-                            <td>${item.cliente.nombre}</td>
+                            <td>${item.cliente.dni}</td>
+                            <td>${item.cliente.nombre} ${item.cliente.apellido}</td>
                             <td>${item.monto}</td>
                             <td>${item.cuotas}</td>
                           </c:if>

@@ -83,7 +83,7 @@
 												</div>
 												<div class="form-group col-md-6">
 													<label style="float: left">Repita la contraseña</label>
-													<input class="form-control" name="passwordConfirm" placeholder="Re-Ingrese su contraseña" required="required" min="6">
+													<input class="form-control" name="passwordConfirm" type="password" placeholder="Re-Ingrese su contraseña" required="required" min="6">
 												</div>
 											</div>
 

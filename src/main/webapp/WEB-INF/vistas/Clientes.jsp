@@ -16,7 +16,7 @@ $(document).ready(function () {
 <%@ include file="common/NavigatorCommon.jspf"%>
 
 <div class="container-fluid">
-	<div class="p-5 bg-light text-dark border rounded-3" style="width: 100%">
+	<div class="p-3 bg-light text-dark border rounded-3" style="width: 100%">
 		<form action="clientes.html" method="post">
 			<div class="d-flex  align-content-center bd-highlight mb-3">
 				<div class="me-auto p-2 bd-highlight align-self-center">
@@ -28,32 +28,32 @@ $(document).ready(function () {
 			  <div class="col-md-auto table-responsive w-100">
                     <table id="tabla_clientes" class="table table-hover text-center">
                       <thead>
-                        <tr>
+                        <tr class="table-secondary">
                           <th class="text-center" scope="col"> DNI </th>
                           <th class="text-center" scope="col"> Nombre </th>
                           <th class="text-center" scope="col"> Apellido </th>
                           <th class="text-center" scope="col"> Dirección </th>
                           <th class="text-center" scope="col"> CP </th>
                           <th class="text-center" scope="col"> Provincia </th>
+                          <th class="text-center" scope="col"> Nacionalidad </th>
                           <th class="text-center" scope="col"> Fecha de nacimiento </th>
                           <th class="text-center" scope="col"> Email </th>
                           <th class="text-center" scope="col"> Telefono </th>
                         </tr>
                       </thead>
                       <tbody>
-                        <c:forEach items="${listaClientes}" var="item">
-                          <c:if test="${item.estado.ID == 1}">                        
-                          <tr>
-                            <td>${item.DNI} </td>
+                        <c:forEach items="${listaClientes}" var="item">                       
+                          <tr class="table-success">
+                            <td>${item.dni} </td>
                             <td>${item.nombre}</td>
                             <td>${item.apellido}</td>
                             <td>${item.direccion}</td>
                             <td>${item.codpostal}</td>
-                            <td>${item.localidad.nombre}</td>
-                            <td>${item.fecha_nac}</td>
+                            <td>${item.provincia}</td>
+                            <td>${item.nacionalidad}</td>
+                            <td>${item.nacimiento}</td>
                             <td>${item.correo}</td>
                             <td>${item.telefono}</td>
-                          </c:if>
                         </c:forEach>
                       </tbody>
                     </table>

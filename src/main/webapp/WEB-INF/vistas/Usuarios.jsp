@@ -17,19 +17,17 @@ $(document).ready(function () {
 	<%@ include file="common/NavigatorCommon.jspf"%>
 
 <div class="container-fluid">
-	<div class="p-5 bg-light text-dark border rounded-3" style="width: 100%">
-		<form action="clientes.html" method="post">
-			<div class="d-flex  align-content-center bd-highlight mb-3">
+	<div class="p-3 bg-light text-dark border rounded-3" style="width: 100%">
+			<div class="d-flex align-content-center bd-highlight mb-3">
 				<div class="me-auto p-2 bd-highlight align-self-center">
 					<h1 >USUARIOS</h1>
 				</div>
 			</div>
-	
 		  <div class="row mx-2 d-flex flex-wrap align-middle justify-content-evenly">
 			  <div class="col-md-auto table-responsive w-100">
                     <table id="tabla_usuarios" class="table table-hover text-center">
                       <thead>
-                        <tr>
+                        <tr class="table-secondary">
                           <th class="text-center" scope="col"> DNI </th>
                           <th class="text-center" scope="col"> Nombre </th>
                           <th class="text-center" scope="col"> Apellido </th>
@@ -43,7 +41,7 @@ $(document).ready(function () {
                       <tbody>
                         <c:forEach items="${listaUsuarios}" var="item">
                           <c:if test="${item.enabled eq true}">                        
-                          <tr class="table-info">
+                          <tr class="table-warning">
                           </c:if>
                           <c:if test="${item.enabled eq false}">                        
                           <tr class="table-danger">
@@ -62,7 +60,6 @@ $(document).ready(function () {
                     </table>
                   </div>
 		  	</div>		
-		</form>
 	</div>	
 </div>
 

@@ -50,7 +50,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.successForwardUrl("/loginSuccesful").permitAll()
 				.and()
 				.httpBasic()
-				.and().logout();
+				.and().logout().permitAll()
+				.and().exceptionHandling().accessDeniedPage("/access-denied");
 	}
 	
 
