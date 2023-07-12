@@ -90,7 +90,7 @@
 											<hr>
 
 											<div class="d-flex justify-content-center">
-												<input type="submit" class="btn w-25 btn-primary" name="btnAceptar"
+												<input type="submit" class="btn-p but mt-2 mr-1" style="--clr2:#1e9bff; --clr:#1e9bff;" name="btnAceptar"
 													value="Aceptar">
 											</div>
 										</form:form>
@@ -102,7 +102,7 @@
 											<h1>¡Oye!</h1>
 											<p>¿Ya tienes una cuenta? Haz click en el boton de abajo
 												para iniciar sesión.</p>
-											<input type="submit" class="btn btn-success mr-1" value="INICIAR SESION"
+											<input type="submit" class="btn-p but mt-2 mr-1" style="--clr2:#3fad3d; --clr:#3fad3d;" value="INICIAR SESION"
 												name="btnRedirigir">
 										</form>
 									</div>

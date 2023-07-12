@@ -5,6 +5,7 @@ import javax.sql.DataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -13,6 +14,10 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+
+import frgp.utn.edu.ar.dominio.Cliente;
+import frgp.utn.edu.ar.dominio.Prestamo;
+import frgp.utn.edu.ar.dominio.Usuario;
 
 @Configuration
 @EnableWebMvc
@@ -47,6 +52,26 @@ public class AppConfig implements WebMvcConfigurer {
 	public JdbcTemplate jdbcTemplate() {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(datasource());
 		return jdbcTemplate;
+	}
+	
+	@Bean
+	@Scope("prototype")
+	public Cliente clienteNuevo() {
+		return new Cliente();
+	}
+	
+	@Bean
+	@Scope("prototype")
+	public Prestamo prestamoNuevo() {
+		Prestamo nuevo = new Prestamo();
+		nuevo.setCliente(clienteNuevo());
+		return nuevo;
+	}
+	
+	@Bean
+	@Scope("prototype")
+	public Usuario usuarioNuevo() {
+		return new Usuario();
 	}
 	
 	@Override

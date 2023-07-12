@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -18,13 +19,18 @@ public class ClienteDAOImpl implements ClienteDAO {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
+	@Autowired
+    private ApplicationContext context;
+	
 	public List<Cliente> obtenerClientes() {
 	    String consultaClientes = "SELECT c.dni, c.nombre, c.apellido, c.direccion, c.codpostal, c.provincia, c.nacionalidad, "
 	    		+ "c.nacimiento, c.correo, c.telefono FROM CLIENTES c";
 	    List<Cliente> clientes = jdbcTemplate.query(consultaClientes, new RowMapper<Cliente>() {
 	        @Override
 	        public Cliente mapRow(ResultSet rs, int rowNum) throws SQLException {
-	        	Cliente cliente = new Cliente();
+	        	
+	        	Cliente cliente = context.getBean(Cliente.class);
+	        	
 	        	cliente.setDni(rs.getString("dni"));
 	        	cliente.setNombre(rs.getString("nombre"));
 	        	cliente.setApellido(rs.getString("apellido"));
